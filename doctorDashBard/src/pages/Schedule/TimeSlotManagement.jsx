@@ -8,7 +8,7 @@ const TimeSlotManagement = () => {
   const [selectedDate, setSelectedDate] = useState(dayjs().format('YYYY-MM-DD'));
 
   const totalSlots = mockTimeSlots.length;
-  const bookedSlots = mockTimeSlots.filter(slot => slot.status === 'booked').length;
+  const bookedSlots = mockTimeSlots.filter(slot => slot.available === true).length;
   const availableSlots = totalSlots - bookedSlots;
   const utilization = ((bookedSlots / totalSlots) * 100).toFixed(0);
 
@@ -40,7 +40,9 @@ const TimeSlotManagement = () => {
 
       <div className="px-6 py-6 grid grid-cols-2 sm:grid-cols-5 md:grid-cols-6 gap-4">
         {mockTimeSlots.map((slot, idx) => (
+          
           <TimeSlotCard key={idx} slot={slot} />
+          
         ))}
       </div>
 

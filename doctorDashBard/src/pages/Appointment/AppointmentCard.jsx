@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCalendarAlt, FaClock, FaCheck, FaTimes, FaUser } from 'react-icons/fa';
+import { FaCalendarAlt, FaClock, FaCheck, FaTimes } from 'react-icons/fa';
 
 const statusColors = {
   pending: 'bg-yellow-200 text-yellow-700',
@@ -8,7 +8,7 @@ const statusColors = {
   completed: 'bg-blue-200 text-blue-700',
 };
 
-function AppointmentCard({ appointment }) {
+function AppointmentCard({ appointment, onViewPatient, onAccept, onDecline }) {
   const { patientName, type, date, time, status, notes } = appointment;
 
   return (
@@ -18,8 +18,8 @@ function AppointmentCard({ appointment }) {
           {patientName.split(' ').map(word => word[0]).join('')}
         </div>
         <div>
-          <p className="font-bold text-sm text-gray-900 leading-tight">{patientName}</p>
-          <p className="text-xs text-gray-500 leading-tight">{type}</p>
+          <p className="font-bold text-sm text-gray-900">{patientName}</p>
+          <p className="text-xs text-gray-500">{type}</p>
         </div>
       </div>
 
@@ -32,6 +32,7 @@ function AppointmentCard({ appointment }) {
           <FaClock />
           <span>{time}</span>
         </div>
+
         <div>
           <span className={`inline-block text-[10px] font-semibold px-2 py-0.5 rounded-full ${statusColors[status]}`}>
             {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -39,16 +40,16 @@ function AppointmentCard({ appointment }) {
         </div>
 
         <div className="ml-auto flex space-x-2">
-          <button className="text-xs text-blue-600 border border-blue-600 rounded px-2 py-1 hover:bg-blue-50">
+          <button onClick={onViewPatient} className="text-xs text-blue-600 border border-blue-600 rounded px-2 py-1 hover:bg-blue-50">
             View Patient
           </button>
 
           {status === 'pending' && (
             <>
-              <button className="text-xs bg-green-600 text-white rounded px-3 py-1 flex items-center space-x-1 hover:bg-green-700">
+              <button onClick={onAccept} className="text-xs bg-green-600 text-white rounded px-3 py-1 flex items-center space-x-1 hover:bg-green-700">
                 <FaCheck /><span>Accept</span>
               </button>
-              <button className="text-xs bg-red-600 text-white rounded px-3 py-1 flex items-center space-x-1 hover:bg-red-700">
+              <button onClick={onDecline} className="text-xs bg-red-600 text-white rounded px-3 py-1 flex items-center space-x-1 hover:bg-red-700">
                 <FaTimes /><span>Decline</span>
               </button>
             </>
@@ -62,7 +63,7 @@ function AppointmentCard({ appointment }) {
         </div>
       </div>
 
-      <p className="text-xs text-gray-400 bg-gray-100 rounded px-3 py-1 max-w-full truncate">
+      <p className="text-xs text-gray-400 bg-gray-100 rounded px-3 py-1">
         Notes: {notes}
       </p>
     </div>

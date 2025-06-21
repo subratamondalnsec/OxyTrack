@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PatientCard = ({ patient }) => {
+const PatientCard = ({ patient, onViewProfile }) => {
   const getInitials = (name) => {
     return name
       .split(' ')
@@ -40,6 +40,7 @@ const PatientCard = ({ patient }) => {
       </div>
 
       <button
+        onClick={onViewProfile}
         className="w-full text-blue-600 text-xs border border-blue-300 rounded py-1 hover:bg-blue-50"
         type="button"
       >
