@@ -30,8 +30,7 @@ function App() {
         {
           aToken && 
           <Routes>
-          <Route path='/' element={<></>}/>
-          <Route path='/admin-dashboard' element={<Dashboard/>}/>
+          <Route path='/' element={<Dashboard/>}/>
           <Route path='/all-appointments' element={<AllApointment/>}/>
           <Route path='/add-doctor' element={<AddDoctor/>}/>
           <Route path='/doctor-list' element={<DoctorList/>}/>
