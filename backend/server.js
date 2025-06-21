@@ -13,7 +13,7 @@ import { AQIconfig } from "./config/AQI.js";
 import AQIrouter from "./routes/aqiRoute.js";
 import Analyzerouter from "./routes/analyseRoute.js";
 import generateRouter from "./routes/generateRoute.js";
-
+import chatAssistantRouter from './routes/chatAssistantRoute.js';
 
 env.config();
 const app=express();
@@ -63,6 +63,8 @@ app.use('/api/aqi', AQIrouter);
 app.use('/api/analyze', Analyzerouter);
 
 app.use('/api/generate', generateRouter);
+
+app.use('/api/chat', chatAssistantRouter);
 
 app.get("/" ,(req,res)=>{
     res.send("Hello world");

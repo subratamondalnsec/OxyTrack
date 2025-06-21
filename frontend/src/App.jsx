@@ -18,6 +18,7 @@ import MyMedictionReminder from './pages/MyMedictionReminder';
 import MedicineStore from './pages/MedicineStore';
 import MyOrderList from './pages/MyOrderList';
 import VideoMeet from './pages/VideoMeet';
+import HealthChatBot from './components/HealthChatBot';
 
 const App = () => {
   return (
@@ -49,6 +50,7 @@ const App = () => {
         <Route path='/appointment/:docId' element={<Appointment/>} />
         <Route path='/meeting/:url' element={<VideoMeet/>}/>
       </Routes>
+      <HealthChatBot/>
     <Footer/>
     </div>
   )
