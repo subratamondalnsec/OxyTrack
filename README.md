@@ -4,7 +4,7 @@ A **full-stack health monitoring platform** designed to assist patients with res
 
 ---
 
-## 🚀 Integrated Features
+##  Integrated Features
 - 💳 **Secure Online Payments** – Seamless transaction system for medical services.  
 - 🩺 **Virtual Consultations** – Connect with healthcare professionals online.  
 - 🤖 **AI-Powered Chatbot** – Instant responses to patient queries.  
